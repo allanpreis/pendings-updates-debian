@@ -9,8 +9,7 @@ import socket
 import json
 
 SYNAPTIC_PINFILE = "/var/lib/synaptic/preferences"
-DISTRO = subprocess.check_output(["lsb_release", "-c", "-s"],
-                                 universal_newlines=True).strip()
+DISTRO = subprocess.check_output(["lsb_release", "-c", "-s"], universal_newlines=True).strip()
 
 
 def clean(cache, depcache):
@@ -143,8 +142,8 @@ if __name__ == '__main__':
     pkgs = get_update_packages()
     available_updates = print_result(pkgs)
 
-    bot_token = '1360909421:AAHTwZaF4I7UAe5JyR72Wjz_FZS4C_xPRMc'
-    bot_chatID = '-512778645'
+    bot_token = ''
+    bot_chatID = ''
 
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + available_updates
     response = requests.post(send_text, headers={'Content-Type': 'application/json'})
